@@ -24,12 +24,12 @@ class Tetris {
 
     public Score play() {
         boolean moved;
-        int score = 0;
+        Score score = new Score(waiter);
         do {
             moved = false;
 
             playfield.nextBlock();
-            score++;
+            score.increaseScore();
 
             boolean nextMove;
             do {
@@ -40,7 +40,7 @@ class Tetris {
 
         } while (moved);
 
-        return new Score(score);
+        return score;
     }
 
     public static void main(String[] args) {
