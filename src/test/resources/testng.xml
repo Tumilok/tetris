@@ -11,6 +11,7 @@
                 <include name="Block"/>
                 <include name="Player"/>
                 <include name="Game"/>
+                <include name="Tetris"/>
             </run>
         </groups>
         <classes>
@@ -18,6 +19,7 @@
             <class name="com.epam.prejap.tetris.block.BlockFeedTest"/>
             <class name="com.epam.prejap.tetris.player.RandomPlayerTest"/>
             <class name="com.epam.prejap.tetris.game.WaiterTest"/>
+            <class name="com.epam.prejap.tetris.ScoreTest"/>
         </classes>
     </test>
 </suite>
