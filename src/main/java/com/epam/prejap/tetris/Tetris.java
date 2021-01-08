@@ -29,7 +29,7 @@ class Tetris {
             moved = false;
 
             playfield.nextBlock();
-            score.increaseScore();
+            score.handleScore();
 
             boolean nextMove;
             do {

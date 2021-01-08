@@ -3,10 +3,9 @@ package com.epam.prejap.tetris.game;
 import java.util.concurrent.TimeUnit;
 
 /**
- * The Waiter class is responsible for waiting some given time
- * till the next render.
+ * Responsible for waiting some given time till the next render.
  *
- * @implNote It gets {@link #milliseconds} filed as a constructor argument
+ * @implNote Gets {@link #milliseconds} filed as a constructor argument
  */
 
 public class Waiter {
@@ -37,4 +36,5 @@ public class Waiter {
     public int milliseconds() {
         return milliseconds;
     }
+
 }

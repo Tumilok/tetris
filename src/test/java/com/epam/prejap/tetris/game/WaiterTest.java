@@ -1,7 +1,8 @@
 package com.epam.prejap.tetris.game;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 @Test(groups = "Game")
 public class WaiterTest {
@@ -9,29 +10,30 @@ public class WaiterTest {
     @Test
     public void shallDecreaseWaitingTime() {
         //given
+        int expectedMills = 400;
         int initialMills = 500;
-        int actualMills = 400;
         var waiter = new Waiter(initialMills);
+        waiter.decreaseWaitingTime();
 
         //when
-        waiter.decreaseWaitingTime();
-        int expectedMills = waiter.milliseconds();
+        int actualMills = waiter.milliseconds();
 
         //then
-        Assert.assertEquals(actualMills, expectedMills);
+        assertEquals(actualMills, expectedMills);
     }
 
     @Test
     public void shallNotModifyWaitingTime() {
         //given
-        int initialMills = 100;
-        var waiter = new Waiter(initialMills);
+        int expectedMills = 100;
+        var waiter = new Waiter(expectedMills);
+        waiter.decreaseWaitingTime();
 
         //when
-        waiter.decreaseWaitingTime();
-        int expectedMills = waiter.milliseconds();
+        int actualMills = waiter.milliseconds();
 
         //then
-        Assert.assertEquals(initialMills, expectedMills);
+        assertEquals(actualMills, expectedMills);
     }
+
 }

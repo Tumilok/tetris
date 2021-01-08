@@ -11,7 +11,7 @@
                 <include name="Block"/>
                 <include name="Player"/>
                 <include name="Game"/>
-                <include name="Tetris"/>
+                <include name="Score"/>
             </run>
         </groups>
         <classes>

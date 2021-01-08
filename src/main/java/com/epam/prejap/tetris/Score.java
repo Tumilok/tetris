@@ -5,7 +5,7 @@ import com.epam.prejap.tetris.game.Waiter;
 import java.util.Objects;
 
 /**
- * The Score class represents player's score in tetris game.
+ * Responsible for holding and increasing the game score
  *
  * @implNote This class evaluates {@link Waiter#decreaseWaitingTime()} method
  * when player gets next 10 points. It gets {@link Waiter} object as a constructor argument
@@ -20,9 +20,13 @@ class Score {
         this.waiter = Objects.requireNonNull(waiter, "waiter must not be null");
     }
 
-    public void increaseScore() {
-        points++;
+    public void handleScore() {
+        increaseScore();
         handleWaitingTime();
+    }
+
+    private void increaseScore() {
+        points++;
     }
 
     private void handleWaitingTime() {
@@ -35,7 +39,8 @@ class Score {
         return points % 10 == 0;
     }
 
-    int points() {
+    public int points() {
         return points;
     }
+
 }
