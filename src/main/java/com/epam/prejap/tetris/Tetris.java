@@ -4,6 +4,7 @@ import com.epam.prejap.tetris.block.BlockFeed;
 import com.epam.prejap.tetris.game.*;
 import com.epam.prejap.tetris.player.Player;
 import com.epam.prejap.tetris.player.RandomPlayer;
+import com.epam.prejap.tetris.score.Score;
 
 import java.util.Random;
 
@@ -23,12 +24,13 @@ class Tetris {
 
     public Score play() {
         boolean moved;
-        Score score = new Score(waiter);
+        Score score = new Score();
+        score.addObserver(waiter);
         do {
             moved = false;
 
             playfield.nextBlock();
-            score.handleScore();
+            score.increaseScore();
 
             boolean nextMove;
             do {

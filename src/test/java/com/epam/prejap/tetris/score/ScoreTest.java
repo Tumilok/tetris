@@ -1,6 +1,5 @@
-package com.epam.prejap.tetris;
+package com.epam.prejap.tetris.score;
 
-import com.epam.prejap.tetris.game.Waiter;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -12,9 +11,8 @@ public class ScoreTest {
     @Test
     public void shallIncreaseScore() {
         //given
-        Waiter waiter = new Waiter(0);
-        Score score = new Score(waiter);
-        score.handleScore();
+        var score = new Score();
+        score.increaseScore();
         int expectedPoints = 1;
 
         //when
@@ -25,8 +23,14 @@ public class ScoreTest {
     }
 
     @Test
-    public void shallThrowNullPointerExceptionReceivingNullArgumentInConstructor() {
-        assertThrows(NullPointerException.class, () -> new Score(null));
+    public void shallThrowNullPointerExceptionAddingNullObserver() {
+        //given
+        var score = new Score();
+
+        //when
+
+        //then
+        assertThrows(NullPointerException.class, () -> score.addObserver(null));
     }
 
 }

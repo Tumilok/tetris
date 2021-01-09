@@ -1,5 +1,7 @@
 package com.epam.prejap.tetris.game;
 
+import com.epam.prejap.tetris.score.ScoreObserver;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -8,7 +10,10 @@ import java.util.concurrent.TimeUnit;
  * @implNote Gets {@link #milliseconds} filed as a constructor argument
  */
 
-public class Waiter {
+public class Waiter implements ScoreObserver {
+
+    private static final int INCREASE_GAME_SPEED_SCORE = 10;
+    private static final int DECREASE_WAITING_TIME = 100;
 
     private int milliseconds;
 
@@ -23,18 +28,28 @@ public class Waiter {
         }
     }
 
-    public void decreaseWaitingTime() {
+    @Override
+    public void scoreChanged(int newScore) {
+        if (shouldDecreaseWaitingTime(newScore)) {
+            decreaseWaitingTime();
+        }
+    }
+
+    private boolean shouldDecreaseWaitingTime(int score) {
+        return score % INCREASE_GAME_SPEED_SCORE == 0;
+    }
+
+    private void decreaseWaitingTime() {
         if (haveEnoughTime()) {
-            milliseconds -= 100;
+            milliseconds -= DECREASE_WAITING_TIME;
         }
     }
 
     private boolean haveEnoughTime() {
-        return milliseconds - 100 > 0;
+        return milliseconds - DECREASE_WAITING_TIME > 0;
     }
 
     public int milliseconds() {
         return milliseconds;
     }
-
 }

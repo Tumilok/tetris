@@ -20,7 +20,7 @@
             <class name="com.epam.prejap.tetris.block.BlockFeedTest"/>
             <class name="com.epam.prejap.tetris.player.RandomPlayerTest"/>
             <class name="com.epam.prejap.tetris.game.WaiterTest"/>
-            <class name="com.epam.prejap.tetris.ScoreTest"/>
+            <class name="com.epam.prejap.tetris.score.ScoreTest"/>
             <class name="com.epam.prejap.tetris.game.PrinterTest"/>
             <class name="com.epam.prejap.tetris.game.TimerTest"/>
         </classes>
