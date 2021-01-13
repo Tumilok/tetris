@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-@Test(groups = "Game")
+@Test(groups = "Waiter")
 public class WaiterTest {
 
     @Test
