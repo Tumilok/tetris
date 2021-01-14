@@ -18,10 +18,8 @@
                 <include name="Timer"/>
                 <include name="Grid"/>
                 <include name="Playfield"/>
-                <include name="Waiter" />
-            </define>
-            <define name="Score">
-                <include name="Score" />
+                <include name="Waiter"/>
+                <include name="Referee"/>
             </define>
             <run>
                 <include name="Block"/>
@@ -30,7 +28,6 @@
                 <include name="Game"/>
                 <include name="Timer"/>
                 <include name="Color"/>
-                <include name="Score"/>
             </run>
         </groups>
         <classes>
@@ -39,7 +36,7 @@
             <class name="com.epam.prejap.tetris.block.BlockFeedTest"/>
             <class name="com.epam.prejap.tetris.block.BlockFeedTestFactory"/>
             <class name="com.epam.prejap.tetris.player.RandomPlayerTest"/>
-            <class name="com.epam.prejap.tetris.score.ScoreTest"/>
+            <class name="com.epam.prejap.tetris.game.RefereeTest"/>
             <class name="com.epam.prejap.tetris.game.WaiterTest"/>
             <class name="com.epam.prejap.tetris.game.MoveTest"/>
             <class name="com.epam.prejap.tetris.CommandLineAnalystTest"/>

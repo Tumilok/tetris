@@ -4,7 +4,7 @@ import com.epam.prejap.tetris.block.BlockFeed;
 import com.epam.prejap.tetris.game.*;
 import com.epam.prejap.tetris.player.Player;
 import com.epam.prejap.tetris.player.RandomPlayer;
-import com.epam.prejap.tetris.score.Score;
+import com.epam.prejap.tetris.game.Referee;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -23,15 +23,15 @@ class Tetris {
         this.timer = timer;
     }
 
-    public Score play() {
+    public Referee play() {
         boolean moved;
-        Score score = new Score();
-        score.addObserver(waiter);
+        Referee referee = new Referee();
+        referee.addObserver(waiter);
         do {
             moved = false;
 
             playfield.nextBlock();
-            score.increaseScore();
+            referee.increaseScore();
 
             boolean nextMove;
             do {
@@ -43,7 +43,7 @@ class Tetris {
 
         } while (moved);
 
-        return score;
+        return referee;
     }
 
     /**
@@ -81,6 +81,6 @@ class Tetris {
 
         var score = game.play();
 
-        System.out.println("Score: " + score.points());
+        System.out.println("Score: " + score.currentScore());
     }
 }

@@ -1,22 +1,22 @@
-package com.epam.prejap.tetris.score;
+package com.epam.prejap.tetris.game;
 
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertThrows;
 
-@Test(groups = "Score")
-public class ScoreTest {
+@Test(groups = "Game")
+public class RefereeTest {
 
     @Test
     public void shallIncreaseScore() {
         //given
-        var score = new Score();
+        var score = new Referee();
         score.increaseScore();
         int expectedPoints = 1;
 
         //when
-        int actualPoints = score.points();
+        int actualPoints = score.currentScore();
 
         //then
         assertEquals(actualPoints, expectedPoints);
@@ -25,7 +25,7 @@ public class ScoreTest {
     @Test
     public void shallThrowNullPointerExceptionAddingNullObserver() {
         //given
-        var score = new Score();
+        var score = new Referee();
 
         //when
 

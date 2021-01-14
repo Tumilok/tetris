@@ -1,7 +1,5 @@
 package com.epam.prejap.tetris.game;
 
-import com.epam.prejap.tetris.score.ScoreObserver;
-
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -10,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @implNote Gets {@link #milliseconds} filed as a constructor argument
  */
 
-public class Waiter implements ScoreObserver {
+public class Waiter implements RefereeObserver {
 
     private static final int DECREASE_WAITING_TIME = 100;
 
