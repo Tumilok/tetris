@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Waiter implements ScoreObserver {
 
-    private static final int INCREASE_GAME_SPEED_SCORE = 10;
     private static final int DECREASE_WAITING_TIME = 100;
 
     private int milliseconds;
@@ -29,14 +28,8 @@ public class Waiter implements ScoreObserver {
     }
 
     @Override
-    public void scoreChanged(int newScore) {
-        if (shouldDecreaseWaitingTime(newScore)) {
-            decreaseWaitingTime();
-        }
-    }
-
-    private boolean shouldDecreaseWaitingTime(int score) {
-        return score % INCREASE_GAME_SPEED_SCORE == 0;
+    public void levelChanged() {
+        decreaseWaitingTime();
     }
 
     private void decreaseWaitingTime() {

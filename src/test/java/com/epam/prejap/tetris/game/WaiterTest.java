@@ -8,10 +8,10 @@ import static org.testng.Assert.assertEquals;
 public class WaiterTest {
 
     @Test
-    public void shallDecreaseWaitingTimeWhenScoreDivisibleBy10() {
+    public void shallDecreaseWaitingTimeWhenLevelChanged() {
         //given
         var waiter = new Waiter(500);
-        waiter.scoreChanged(10);
+        waiter.levelChanged();
 
         //when
         int actualMills = waiter.milliseconds();
@@ -21,25 +21,11 @@ public class WaiterTest {
     }
 
     @Test
-    public void shallNotModifyWaitingTimeWhenScoreDivisibleBy10() {
+    public void shallNotModifyWaitingTimeWhenLevelChanged() {
         //given
         int initialMills = 100;
         var waiter = new Waiter(initialMills);
-        waiter.scoreChanged(10);
-
-        //when
-        int actualMills = waiter.milliseconds();
-
-        //then
-        assertEquals(actualMills, initialMills);
-    }
-
-    @Test
-    public void shallNotModifyWaitingTimeWhenScoreNotDivisibleBy10() {
-        //given
-        int initialMills = 500;
-        var waiter = new Waiter(initialMills);
-        waiter.scoreChanged(9);
+        waiter.levelChanged();
 
         //when
         int actualMills = waiter.milliseconds();
