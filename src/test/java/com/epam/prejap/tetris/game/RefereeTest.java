@@ -5,21 +5,21 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertThrows;
 
-@Test(groups = "Game")
+@Test(groups = "Score")
 public class RefereeTest {
 
     @Test
-    public void shallIncreaseScore() {
+    public void shallIncreaseScoreWhenNewBlockAppears() {
         //given
-        var score = new Referee();
-        score.increaseScore();
-        int expectedPoints = 1;
+        var referee = new Referee();
+        referee.newBlockAppeared();
+        int expectedScore = 1;
 
         //when
-        int actualPoints = score.currentScore();
+        int actualScore = referee.currentScore();
 
         //then
-        assertEquals(actualPoints, expectedPoints);
+        assertEquals(actualScore, expectedScore);
     }
 
     @Test
@@ -33,4 +33,8 @@ public class RefereeTest {
         assertThrows(NullPointerException.class, () -> score.addObserver(null));
     }
 
+    @Test(groups = "Score")
+    public void scoreShouldIncreaseWhenNewBlockAppears() {
+
+    }
 }
